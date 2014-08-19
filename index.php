@@ -2,9 +2,9 @@
 
 	include 'core/init.php';
 
-	if (Session::exists('success')) {
-		echo '<p>' . Session::flash('success') . '</p>';
-	}
+	// if (Session::exists('success')) {
+	// 	echo '<p>' . Session::flash('success') . '</p>';
+	// }
 
 	$user = new User();
 	if ($user->isLoggedIn()) {
