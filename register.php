@@ -65,11 +65,9 @@
 				'secondary_postal_index' => array(
 					'min' => 2, 
 					'max' => 20,
-					'regex' => '/^[0-9]{3}[\s]*[0-9]{2}$/'//,
-					//'negative_dependency' => 'last_name'				
+					'regex' => '/^[0-9]{3}[\s]*[0-9]{2}$/'			
 				),
 				'secondary_house_number' => array(
-					//'dependency' => 'last_name',   
 					'regex' => '/^\d+[a-zA-Z]?((\/\d+[a-zA-Z]?)?|(-\d+[a-zAZ]?)?)$/'			
 				),
 			));
@@ -80,7 +78,7 @@
 					$user->create(array(
 						'first_name' => ucfirst(strtolower(Input::get('first_name'))),
 						'last_name' => ucfirst(strtolower(Input::get('last_name'))),
-						'email' => Input::get('email'),
+						'email' => strtolower(Input::get('email')),
 						'phone' => Input::get('phone'),
 						'birth_date' => Input::get('birth_date'),
 						'cz_bank_code' => Input::get('cz_bank_code'),
@@ -123,7 +121,7 @@
 
 <!-- Pre form style begin -->
 
-<body>
+
     <div class="container">
         <div class="row">
             <!-- form: -->
@@ -138,61 +136,61 @@
 <form action="" method="post" id="defaultForm" class="form-horizontal">
 	<fieldset>	<legend>Personal data:</legend>
 
-		<div class="field">
-		<label for="first_name">First name</label>
-		<input type="text" name="first_name" id="first_name" value="<?php echo escape(Input::get('first_name')); ?>" placeholder="Norman">
+		<div class="form-group">
+			<label class="control-label" for="first_name">First name</label>
+			<input type="text" class="form-control" name="first_name" id="first_name" placeholder="Norman">
 		</div>
-		<div class="field">
+		<div class="form-group">
 			<label for="last_name">Last name</label>
-			<input type="text" name="last_name" id="last_name" value="<?php echo escape(Input::get('last_name')); ?>" placeholder="Miller">
+			<input type="text" class="form-control" name="last_name" id="last_name" placeholder="Miller">
 		</div>
-		<div class="field">
+		<div class="form-group">
 			<label for="email">Email</label>
-			<input type="text" name="email" id="email" placeholder="nmiller@example.com">
+			<input type="text" class="form-control" name="email" id="email" placeholder="nmiller@example.com">
 		</div>
-		<div class="field">
+		<div class="form-group">
 			<label for="phone">Phone</label>
-			<input type="text" name="phone" id="phone" placeholder="123456678">
+			<input type="text" class="form-control" name="phone" id="phone" placeholder="123456678">
 		</div>
-		<div class="field">
+		<div class="form-group">
 			<label for="birth_date">Birth date</label>
-			<input type="text" name="birth_date" id="birth_date" placeholder="1980-01-01">
+			<input type="text" class="form-control" name="birth_date" id="birth_date" placeholder="1980-01-01">
 		</div>
-		<div class="field">
+		<div class="form-group">
 			<label for="cz_bank_code">Bank code</label>
-			<input type="text" name="cz_bank_code" id="cz_bank_code" placeholder="0800">
+			<input type="text" class="form-control" name="cz_bank_code" id="cz_bank_code" placeholder="0800">
 		</div>
-		<div class="field">
+		<div class="form-group">
 			<label for="house_number">House number</label>
-			<input type="text" name="house_number" id="house_number" placeholder="12b">
+			<input type="text" class="form-control" name="house_number" id="house_number" placeholder="12">
 		</div>
-		<div class="field">
+		<div class="form-group">
 			<label for="postal_index">Postal code</label>
-			<input 	type="text" name="postal_index" id="postal_index" placeholder="24353">
+			<input 	type="text" class="form-control"name="postal_index" id="postal_index" placeholder="24353">
 		</div>
-		<div class="field">
+		<div class="form-group">
 			<input type="checkbox" name="lives_at_registred_address" value="1">lives at registred address
 		</div>
-		<div class="field">
+		<div class="form-group">
 			<label for="secondary_house_number">Secondary house number</label>
-			<input type="text" name="secondary_house_number" id="secondary_house_number" placeholder="23s">
+			<input type="text" class="form-control" name="secondary_house_number" id="secondary_house_number" placeholder="23s">
 		</div>
-		<div class="field">
+		<div class="form-group">
 			<label for="secondary_postal_index">Secondary postal code</label>
-			<input type="text" name="secondary_postal_index" id="secondary_postal_index" placeholder="24353">
+			<input type="text" class="form-control" name="secondary_postal_index" id="secondary_postal_index" placeholder="24353">
 		</div>
-		<div class="field">
+		<div class="form-group">
 			<label for="personal_id">Personal ID</label>
-			<input type="text" name="personal_id" id="personal_id" placeholder="891103/1238">
+			<input type="text" class="form-control" name="personal_id" id="personal_id" placeholder="891103/1238">
 		</div>
 		<hr>
-		<div class="field">
+		<div class="form-group">
 			<label for="loan_sum">Loan sum</label>
-			<input type="text" name="loan_sum" id="loan_sum" placeholder="4000">
+			<input type="text" class="form-control" name="loan_sum" id="loan_sum" placeholder="4000">
 		</div>
-		<div class="field">
+		<div class="form-group">
 			<label for="loan_period">Loan period</label>
-			<input type="text" name="loan_period" id="loan_period" placeholder="15">
+			<input type="text" class="form-control" name="loan_period" id="loan_period" placeholder="15">
 		</div>
 		<hr>
 		<input type="submit" value="Register">		
@@ -208,6 +206,8 @@
         </div>
     </div>
 <!-- END FROM STYLE END -->
+
+<script type="text/javascript" src="public/js/insert.js"></script>
 
 <?php
 	include 'includes/template/footer.php';
