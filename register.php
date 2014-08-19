@@ -84,7 +84,9 @@
 						'cz_bank_code' => Input::get('cz_bank_code'),
 						'house_number' => Input::get('house_number'),
 						'postal_index' => Input::get('postal_index'),
-						'lives_at_registred_address' => Input::get('lives_at_registred_address'),
+						
+						'lives_at_registred_address' => (Input::get('lives_at_registred_address') == 'no' ? 0 : 1),
+						
 						'secondary_house_number' => Input::get('secondary_house_number'),
 						'secondary_postal_index' => Input::get('secondary_postal_index'),
 						'personal_id' => Input::get('personal_id')
@@ -169,7 +171,10 @@
 			<input 	type="text" class="form-control"name="postal_index" id="postal_index" placeholder="24353">
 		</div>
 		<div class="form-group">
-			<input type="checkbox" name="lives_at_registred_address" value="1">lives at registred address
+			<label>lives at registred address</label><br>
+			<input type="radio" name="lives_at_registred_address" value="yes">true
+			<input type="radio" name="lives_at_registred_address" value="no">false
+			<div id="dependency"></div>
 		</div>
 		<div class="form-group">
 			<label for="secondary_house_number">Secondary house number</label>
@@ -193,7 +198,7 @@
 			<input type="text" class="form-control" name="loan_period" id="loan_period" placeholder="15">
 		</div>
 		<hr>
-		<input type="submit" value="Register">		
+		<input type="submit" value="Register" class="insert">		
 	</fieldset>
 	<!-- <input type="hidden" name="token" value="<?php echo Token::generate(); ?>"> -->
 </form>

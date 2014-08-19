@@ -1,3 +1,5 @@
+
+
 $(document).ready(function() {
     $('#defaultForm').bootstrapValidator({
         message: 'This value is not valid',
@@ -103,7 +105,7 @@ $(document).ready(function() {
                     stringLength: {
                         min: 2,
                         max: 255,
-                        message: 'The number must be more than 2 and less than 30 characters long'
+                        message: 'The number must be more than 2 and less than 255 characters long'
                     },
                     regexp: {
                         regexp:  /^\d+[a-zA-Z]?((\/\d+[a-zA-Z]?)?|(-\d+[a-zAZ]?)?)$/ ,
@@ -120,11 +122,11 @@ $(document).ready(function() {
                     stringLength: {
                         min: 5,
                         max: 5,
-                        message: 'The postal code must be more than 6 and less than 30 characters long'
+                        message: 'The postal code must be 5 characters long'
                     },
                     regexp: {
                         regexp:  /^\d+[a-zA-Z]?((\/\d+[a-zA-Z]?)?|(-\d+[a-zAZ]?)?)$/ ,
-                        message: 'The postal code can only consist of alphabetical, number, dot and underscore'
+                        message: 'The postal code can only consist of number'
                     }
                 }
             },
@@ -136,40 +138,51 @@ $(document).ready(function() {
                     },
                     regexp: {
                         regexp:  /\d{6}\/\d{4}/ ,
-                        message: 'The postal code can only consist of alphabetical, number, dot and underscore'
+                        message: 'The postal code can only consist of number and slash'
                     }
                 }
             },
             loan_sum: {
+                validators: {
                     notEmpty: {
                         message: 'The name is required and can\'t be empty'
                     },
                     lessThan: {
                         value: 10000,
                         inclusive: true,
-                        message: 'The ages has to be less than 100'
+                        message: 'No more than 10000'
                     },
                     greaterThan: {
                         value: 500,
                         inclusive: false,
-                        message: 'The ages has to be greater than or equals to 10'
+                        message: 'No less than 500'
+                    },
+                    regexp: {
+                        regexp:  /\d/ ,
+                        message: 'The postal code can only consist of numeric characters'
                     }
+                }
             },
             loan_period: {
-                message: 'The postal code is not valid',
+                validators: {
                     notEmpty: {
                         message: 'The name is required and can\'t be empty'
                     },
                     lessThan: {
                         value: 30,
                         inclusive: true,
-                        message: 'The ages has to be less than 100'
+                        message: 'No more than 30'
                     },
                     greaterThan: {
                         value: 1,
                         inclusive: false,
-                        message: 'The ages has to be greater than or equals to 10'
+                        message: 'No less than 1'
+                    },
+                    regexp: {
+                        regexp:  /\d/ ,
+                        message: 'The postal code can only consist of alphabetical, number, dot and underscore'
                     }
+                }
             },
             secondary_house_number: {
                 message: 'The House number is not valid',
@@ -181,7 +194,7 @@ $(document).ready(function() {
                     },
                     regexp: {
                         regexp:  /^\d+[a-zA-Z]?((\/\d+[a-zA-Z]?)?|(-\d+[a-zAZ]?)?)$/ ,
-                        message: 'The number can only consist of alphabetical, number, dot and underscore'
+                        message: 'The number can only consist of num characters'
                     }
                 }
             },
@@ -191,14 +204,46 @@ $(document).ready(function() {
                     stringLength: {
                         min: 5,
                         max: 5,
-                        message: 'The postal code must be more than 6 and less than 30 characters long'
+                        message: 'The postal code must be 5 characters long'
                     },
                     regexp: {
                         regexp:  /^\d+[a-zA-Z]?((\/\d+[a-zA-Z]?)?|(-\d+[a-zAZ]?)?)$/ ,
-                        message: 'The postal code can only consist of alphabetical, number, dot and underscore'
+                        message: 'The postal code can only of numerical characters'
                     }
                 }
             }     
         }
     });
+
+
+//'input[name="lives_at_registred_address"]'
+
+    $('#defaultForm').change(function() {
+        dependency();      
+
+    });
+
+    function dependency(){
+        if($('input[name="lives_at_registred_address"]:checked').val() == 'no') {
+            console.log('no');
+// 
+            $( "#dependency" ).html( '<p class="has-error">Secondary house number and Secondary Postal code are required now</p>' );
+            
+            if ( $( "#secondary_postal_index" ).val().length === 0 || $( "#secondary_house_number" ).val().length === 0) {
+                $('.insert').prop('disabled', true).removeClass('btn-success btn-warning').addClass('btn-warning');
+                console.log('disable the button')
+            }else{
+                $('.insert').prop('disabled', false).removeClass('btn-success btn-warning').addClass('btn-success');
+            };
+
+        }else{
+            console.log('yes');
+
+            $( "#dependency" ).html( "" );
+            $('.insert').prop('disabled', false).removeClass('btn-success btn-warning').addClass('btn-success');
+
+        }       
+    }
+
+
 });

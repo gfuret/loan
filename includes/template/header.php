@@ -12,8 +12,8 @@
 </head>
 	<body>
 		<header class="container">
-			<nav>
-				<ul>
+			<nav class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
 					<li><a href="index.php">Home</a></li>
 					<li><a href="client_directory.php">Record</a></li>
 					<?php 
