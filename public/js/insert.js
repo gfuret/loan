@@ -195,7 +195,14 @@ $(document).ready(function() {
                     regexp: {
                         regexp:  /^\d+[a-zA-Z]?((\/\d+[a-zA-Z]?)?|(-\d+[a-zAZ]?)?)$/ ,
                         message: 'The number can only consist of num characters'
-                    }
+                    },
+                    callback: {
+                        message: 'If you mark false in lives at registred address you must fill this input',
+                        callback: function(value, validator) {
+                            return ($('input[name="lives_at_registred_address"]:checked').val() != 'no' 
+                                || $('#secondary_house_number').val().length > 1);
+                        }
+                    }                    
                 }
             },
             secondary_postal_index: {
@@ -209,41 +216,17 @@ $(document).ready(function() {
                     regexp: {
                         regexp:  /^\d+[a-zA-Z]?((\/\d+[a-zA-Z]?)?|(-\d+[a-zAZ]?)?)$/ ,
                         message: 'The postal code can only of numerical characters'
-                    }
+                    },
+                    callback: {
+                        message: 'If you mark false in lives at registred address you must fill this input',
+                        callback: function(value, validator) {
+                            return ($('input[name="lives_at_registred_address"]:checked').val() != 'no' 
+                                || $('#secondary_postal_index').val().length > 1);
+                        }
+                    }  
                 }
             }     
         }
     });
-
-
-//'input[name="lives_at_registred_address"]'
-
-    $('#defaultForm').change(function() {
-        dependency();      
-
-    });
-
-    function dependency(){
-        if($('input[name="lives_at_registred_address"]:checked').val() == 'no') {
-            console.log('no');
-// 
-            $( "#dependency" ).html( '<p class="has-error">Secondary house number and Secondary Postal code are required now</p>' );
-            
-            if ( $( "#secondary_postal_index" ).val().length === 0 || $( "#secondary_house_number" ).val().length === 0) {
-                $('.insert').prop('disabled', true).removeClass('btn-success btn-warning').addClass('btn-warning');
-                console.log('disable the button')
-            }else{
-                $('.insert').prop('disabled', false).removeClass('btn-success btn-warning').addClass('btn-success');
-            };
-
-        }else{
-            console.log('yes');
-
-            $( "#dependency" ).html( "" );
-            $('.insert').prop('disabled', false).removeClass('btn-success btn-warning').addClass('btn-success');
-
-        }       
-    }
-
 
 });

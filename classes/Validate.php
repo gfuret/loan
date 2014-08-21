@@ -69,7 +69,7 @@
 								break;														
 							case 'b_date':
 								if (!validateDate($value) ) {
-									$this->addError("{$item} need a valid data like yyyy-mm-ddd");
+									$this->addError("{$item} need a valid data like yyyy-mm-dd");
 								}
 								break;	
 							case 'numeric':

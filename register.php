@@ -178,7 +178,7 @@
 		</div>
 		<div class="form-group">
 			<label for="secondary_house_number">Secondary house number</label>
-			<input type="text" class="form-control" name="secondary_house_number" id="secondary_house_number" placeholder="23s">
+			<input type="text" class="form-control" name="secondary_house_number" id="secondary_house_number" placeholder="23">
 		</div>
 		<div class="form-group">
 			<label for="secondary_postal_index">Secondary postal code</label>
