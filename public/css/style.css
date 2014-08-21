@@ -1,0 +1,8 @@
+.required{
+	font-size: 2em;
+	color: red;
+	display: inline;
+}
+.invisible{
+	display: none;
+}

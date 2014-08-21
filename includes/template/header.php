@@ -4,6 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="public/bootstrap/css/bootstrap.css"/>
     <link rel="stylesheet" href="public/css/bootstrapValidator.css"/>
+    <link rel="stylesheet" href="public/css/style.css"/>
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script type="text/javascript" src="public/bootstrap/js/bootstrap.min.js"></script>	

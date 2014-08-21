@@ -136,37 +136,45 @@
 <!-- Pre from style end -->
 
 <form action="" method="post" id="defaultForm" class="form-horizontal">
-	<fieldset>	<legend>Personal data:</legend>
+	<fieldset>	<legend>Personal data: fields with <p class="required">*</p> are required</legend>
 
 		<div class="form-group">
+			<p class="required">*</p>
 			<label class="control-label" for="first_name">First name</label>
 			<input type="text" class="form-control" name="first_name" id="first_name" placeholder="Norman">
 		</div>
 		<div class="form-group">
+			<p class="required">*</p>
 			<label for="last_name">Last name</label>
 			<input type="text" class="form-control" name="last_name" id="last_name" placeholder="Miller">
 		</div>
 		<div class="form-group">
+			<p class="required">*</p>
 			<label for="email">Email</label>
 			<input type="text" class="form-control" name="email" id="email" placeholder="nmiller@example.com">
 		</div>
 		<div class="form-group">
+			<p class="required">*</p>
 			<label for="phone">Phone</label>
 			<input type="text" class="form-control" name="phone" id="phone" placeholder="123456678">
 		</div>
 		<div class="form-group">
+			<p class="required">*</p>
 			<label for="birth_date">Birth date</label>
 			<input type="text" class="form-control" name="birth_date" id="birth_date" placeholder="1980-01-01">
 		</div>
 		<div class="form-group">
+			<p class="required">*</p>
 			<label for="cz_bank_code">Bank code</label>
 			<input type="text" class="form-control" name="cz_bank_code" id="cz_bank_code" placeholder="0800">
 		</div>
 		<div class="form-group">
+			<p class="required">*</p>
 			<label for="house_number">House number</label>
 			<input type="text" class="form-control" name="house_number" id="house_number" placeholder="12">
 		</div>
 		<div class="form-group">
+			<p class="required">*</p>
 			<label for="postal_index">Postal code</label>
 			<input 	type="text" class="form-control"name="postal_index" id="postal_index" placeholder="24353">
 		</div>
@@ -185,15 +193,18 @@
 			<input type="text" class="form-control" name="secondary_postal_index" id="secondary_postal_index" placeholder="24353">
 		</div>
 		<div class="form-group">
+			<p class="required">*</p>
 			<label for="personal_id">Personal ID</label>
 			<input type="text" class="form-control" name="personal_id" id="personal_id" placeholder="891103/1238">
 		</div>
 		<hr>
 		<div class="form-group">
+			<p class="required">*</p>
 			<label for="loan_sum">Loan sum</label>
 			<input type="text" class="form-control" name="loan_sum" id="loan_sum" placeholder="4000">
 		</div>
 		<div class="form-group">
+			<p class="required">*</p>
 			<label for="loan_period">Loan period</label>
 			<input type="text" class="form-control" name="loan_period" id="loan_period" placeholder="15">
 		</div>

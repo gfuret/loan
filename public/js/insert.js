@@ -103,7 +103,7 @@ $(document).ready(function() {
                         message: 'The number is required and can\'t be empty'
                     },
                     stringLength: {
-                        min: 2,
+                        min: 1,
                         max: 255,
                         message: 'The number must be more than 2 and less than 255 characters long'
                     },
@@ -188,7 +188,7 @@ $(document).ready(function() {
                 message: 'The House number is not valid',
                 validators: {
                     stringLength: {
-                        min: 2,
+                        min: 1,
                         max: 255,
                         message: 'The number must be more than 2 and less than 30 characters long'
                     },
